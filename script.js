@@ -1,20 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-    particlesJS.load('particles-js', 'particles.json', function() {
-        console.log("Particles.js loaded");
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
 
-    const sections = document.querySelectorAll(".reveal");
+    const observerOptions = {
+        root: null,
+        threshold: 0.1,
+    };
 
-    function revealSections() {
-        sections.forEach(section => {
-            const position = section.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            if (position < windowHeight - 100) {
-                section.classList.add("visible");
+    const observerCallback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
             }
         });
-    }
+    };
 
-    window.addEventListener("scroll", revealSections);
-    revealSections();
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    sections.forEach(section => {
+        observer.observe(section);
+    });
 });
+
+// CSS for animation
+document.styleSheets[0].insertRule(`
+    section {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    }
+`, 0);
+document.styleSheets[0].insertRule(`
+    section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`, 1);
