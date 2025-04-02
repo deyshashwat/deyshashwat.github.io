@@ -1,54 +1,61 @@
 body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #141e30, #243b55);
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #0073e6;
     color: #fff;
+    padding: 20px 0;
     text-align: center;
 }
 
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #141e30;
-    z-index: -1;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-.fade-in {
-    animation: fadeIn 2s ease-in;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.social-links a {
-    display: inline-block;
-    margin: 10px;
-    color: #fff;
+nav ul li a {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
-.social-links a:hover {
-    color: #00bcd4;
+section {
+    padding: 20px;
+    margin: 10px 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #0073e6;
+    margin-top: 0;
+}
+
+.job {
+    margin-bottom: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #0073e6;
+    color: white;
+}
+
+a {
+    color: #0073e6;
+}
+
+a:hover {
+    text-decoration: underline;
 }
